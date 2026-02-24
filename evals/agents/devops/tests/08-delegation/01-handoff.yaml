@@ -4,7 +4,7 @@ description: |
   Verifies devops provides clear provisioning plan for security review
 
 category: delegation
-agent: devops
+agent: security/devops-engineer
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

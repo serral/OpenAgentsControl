@@ -4,7 +4,7 @@ description: |
   Ensures devsecops loads devsecops-context.md for scanning tools and checklists
 
 category: critical-rules
-agent: devsecops
+agent: security/devsecops-specialist
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

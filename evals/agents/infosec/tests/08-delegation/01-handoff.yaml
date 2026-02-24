@@ -4,7 +4,7 @@ description: |
   Verifies infosec provides complete compliance report with gaps and recommendations
 
 category: delegation
-agent: infosec
+agent: security/infosec-analyst
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

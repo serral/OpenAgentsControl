@@ -4,7 +4,7 @@ description: |
   Verifies infosec calculates risk using Likelihood × Impact matrix
 
 category: integration
-agent: infosec
+agent: security/infosec-analyst
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

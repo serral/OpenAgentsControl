@@ -5,7 +5,7 @@ description: |
   with multiple infrastructure changes and clearance cycles
 
 category: integration
-agent: security
+agent: security/security-orchestrator
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

@@ -4,7 +4,7 @@ description: |
   Tests devops handling multiple infrastructure deployments
 
 category: integration
-agent: devops
+agent: security/devops-engineer
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

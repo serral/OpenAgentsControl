@@ -4,7 +4,7 @@ description: |
   Tests devsecops scanning multiple infrastructure components
 
 category: integration
-agent: devsecops
+agent: security/devsecops-specialist
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

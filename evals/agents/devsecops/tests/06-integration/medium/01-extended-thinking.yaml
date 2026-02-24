@@ -4,7 +4,7 @@ description: |
   Verifies devsecops analyzes scan results before generating clearance
 
 category: integration
-agent: devsecops
+agent: security/devsecops-specialist
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

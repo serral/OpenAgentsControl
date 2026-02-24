@@ -4,7 +4,7 @@ description: |
   Verifies devsecops scans incrementally (IaC, then containers, then K8s)
 
 category: workflow
-agent: devsecops
+agent: security/devsecops-specialist
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

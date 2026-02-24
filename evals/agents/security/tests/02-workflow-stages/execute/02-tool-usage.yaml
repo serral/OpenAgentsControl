@@ -5,7 +5,7 @@ description: |
   and never executes infrastructure commands directly
 
 category: workflow
-agent: security
+agent: security/security-orchestrator
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

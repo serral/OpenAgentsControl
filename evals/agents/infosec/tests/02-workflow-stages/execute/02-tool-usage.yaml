@@ -4,7 +4,7 @@ description: |
   Ensures infosec reads policy docs and loads compliance context
 
 category: workflow
-agent: infosec
+agent: security/infosec-analyst
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

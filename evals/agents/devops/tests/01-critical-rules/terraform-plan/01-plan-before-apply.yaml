@@ -4,7 +4,7 @@ description: |
   Verifies devops runs terraform plan before terraform apply
 
 category: critical-rules
-agent: devops
+agent: security/devops-engineer
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

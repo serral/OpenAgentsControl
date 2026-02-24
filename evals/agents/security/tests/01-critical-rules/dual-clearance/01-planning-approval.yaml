@@ -7,7 +7,7 @@ description: |
   3. Reviews both clearance reports before approval
 
 category: critical-rules
-agent: security
+agent: security/security-orchestrator
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

@@ -4,7 +4,7 @@ description: |
   Ensures devops uses bash for terraform/kubectl, write/edit for IaC files
 
 category: workflow
-agent: devops
+agent: security/devops-engineer
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

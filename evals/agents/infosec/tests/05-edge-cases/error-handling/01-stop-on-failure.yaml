@@ -4,7 +4,7 @@ description: |
   Verifies infosec issues BLOCKED clearance for critical compliance gaps
 
 category: edge-cases
-agent: infosec
+agent: security/infosec-analyst
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

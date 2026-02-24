@@ -4,7 +4,7 @@ description: |
   Verifies infosec assesses compliance step-by-step
 
 category: workflow
-agent: infosec
+agent: security/infosec-analyst
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

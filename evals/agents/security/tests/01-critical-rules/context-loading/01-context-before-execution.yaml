@@ -5,7 +5,7 @@ description: |
   when detailed workflow guidance is needed
 
 category: critical-rules
-agent: security
+agent: security/security-orchestrator
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

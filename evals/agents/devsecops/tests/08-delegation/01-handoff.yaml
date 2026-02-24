@@ -4,7 +4,7 @@ description: |
   Verifies devsecops provides complete clearance report with findings and remediation
 
 category: delegation
-agent: devsecops
+agent: security/devsecops-specialist
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

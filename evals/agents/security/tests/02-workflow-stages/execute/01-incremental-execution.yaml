@@ -5,7 +5,7 @@ description: |
   step 1 (devops), step 2 (parallel clearances), step 3 (review), step 4 (decision)
 
 category: workflow
-agent: security
+agent: security/security-orchestrator
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

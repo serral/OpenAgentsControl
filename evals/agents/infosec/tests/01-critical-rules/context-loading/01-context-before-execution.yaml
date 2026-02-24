@@ -4,7 +4,7 @@ description: |
   Ensures infosec loads infosec-context.md for regulation requirements
 
 category: critical-rules
-agent: infosec
+agent: security/infosec-analyst
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

@@ -5,7 +5,7 @@ description: |
   infosec or devsecops returns BLOCKED status
 
 category: edge-cases
-agent: security
+agent: security/security-orchestrator
 model: anthropic/claude-sonnet-4-5
 
 prompt: |

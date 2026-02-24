@@ -1,0 +1,30 @@
+id: devops-error-001
+name: Stop on Terraform Plan Failure
+description: |
+  Verifies devops stops and reports on failed terraform plan
+
+category: error-handling
+agent: devops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Terraform plan failed with this error:
+  "Error: Invalid resource type"
+  
+  What should I do?
+
+behavior:
+  mustContain:
+    - "error"
+    - "fix"
+  mustNotContain:
+    - "terraform apply"
+  minToolCalls: 0
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - error-handling

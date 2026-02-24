@@ -1,0 +1,29 @@
+id: infosec-error-001
+name: Block on Critical Compliance Gaps
+description: |
+  Verifies infosec issues BLOCKED clearance for critical compliance gaps
+
+category: error-handling
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Healthcare system stores PHI without encryption.
+  Provide compliance clearance.
+
+behavior:
+  mustContain:
+    - "BLOCKED"
+    - "HIPAA"
+    - "encryption"
+  mustNotContain:
+    - "CLEAR"
+  minToolCalls: 0
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - error-handling

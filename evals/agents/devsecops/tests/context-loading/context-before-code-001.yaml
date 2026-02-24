@@ -1,0 +1,26 @@
+id: devsecops-context-001
+name: Load DevSecOps Context for Security Checklists
+description: |
+  Ensures devsecops loads devsecops-context.md for scanning tools and checklists
+
+category: context-loading
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  What IaC security checks should I perform on Terraform configs?
+
+behavior:
+  mustContain:
+    - "devsecops-context"
+  mustUseAnyOf:
+    - [read]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - context-loading

@@ -1,0 +1,26 @@
+id: infosec-context-001
+name: Load InfoSec Context for Regulations
+description: |
+  Ensures infosec loads infosec-context.md for regulation requirements
+
+category: context-loading
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  What are the GDPR compliance requirements for data storage?
+
+behavior:
+  mustContain:
+    - "infosec-context"
+  mustUseAnyOf:
+    - [read]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - context-loading

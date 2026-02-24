@@ -1,0 +1,31 @@
+id: devops-compaction-001
+name: Multiple Infrastructure Components
+description: |
+  Tests devops handling multiple infrastructure deployments
+
+category: long-horizon
+agent: devops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Create Terraform configs for:
+  1. VPC with subnets
+  2. RDS database
+  3. EKS cluster
+
+behavior:
+  mustContain:
+    - "VPC"
+    - "RDS"
+    - "EKS"
+  mustUseAnyOf:
+    - [write]
+  minToolCalls: 3
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 90000
+
+tags:
+  - long-horizon

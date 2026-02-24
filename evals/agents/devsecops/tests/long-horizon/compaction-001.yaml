@@ -1,0 +1,31 @@
+id: devsecops-compaction-001
+name: Multiple Component Security Scanning
+description: |
+  Tests devsecops scanning multiple infrastructure components
+
+category: long-horizon
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Scan these 3 separate deployments:
+  1. RDS Terraform config
+  2. Lambda container image
+  3. K8s deployment manifests
+
+behavior:
+  mustContain:
+    - "RDS"
+    - "Lambda"
+    - "K8s"
+  mustUseAnyOf:
+    - [bash]
+  minToolCalls: 3
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 90000
+
+tags:
+  - long-horizon

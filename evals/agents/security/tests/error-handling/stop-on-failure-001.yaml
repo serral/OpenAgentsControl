@@ -1,0 +1,43 @@
+id: security-error-001
+name: Block on BLOCKED Clearance Status
+description: |
+  Verifies security orchestrator blocks deployment when either
+  infosec or devsecops returns BLOCKED status
+
+category: error-handling
+agent: security
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Deploy infrastructure with these clearance results:
+  
+  DevOps: Plan ready (Terraform validated successfully)
+  InfoSec: CLEAR (GDPR compliant, data residency OK)
+  DevSecOps: BLOCKED (High severity: Security group open to 0.0.0.0/0 on port 22)
+  
+  Proceed with deployment?
+
+behavior:
+  mustContain:
+    - "BLOCKED"
+    - "Security group"
+    - "0.0.0.0/0"
+  mustNotContain:
+    - "APPROVED"
+    - "proceed"
+    - "deploy"
+  minToolCalls: 0
+
+expectedViolations:
+  - rule: block-on-security-failure
+    shouldViolate: false
+    severity: error
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - error-handling
+  - stop-on-failure

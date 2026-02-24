@@ -1,0 +1,28 @@
+id: infosec-planning-001
+name: Assess All Regulation Areas Before Clearing
+description: |
+  Verifies infosec assesses all applicable regulations before providing clearance
+
+category: planning
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Provide compliance clearance for a healthcare data storage system.
+
+behavior:
+  mustContain:
+    - "HIPAA"
+    - "compliance"
+  mustUseAnyOf:
+    - [read]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 45000
+
+tags:
+  - planning
+  - compliance

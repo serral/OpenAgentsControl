@@ -1,0 +1,24 @@
+# DevOps Engineer Test Configuration
+
+agent: devops
+description: "Infrastructure as Code specialist for Kubernetes, Terraform, Docker, and CI/CD pipelines"
+
+defaults:
+  model: anthropic/claude-sonnet-4-5
+  timeout: 60000
+  approvalStrategy:
+    type: auto-approve
+
+testPaths:
+  - tests/planning
+  - tests/context-loading
+  - tests/implementation
+  - tests/error-handling
+  - tests/long-horizon
+  - tests/completion
+
+expectations:
+  requiresTextApproval: true
+  usesToolPermissions: true
+  loadsContextOnDemand: true
+  responsePrefix: ""

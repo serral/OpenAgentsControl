@@ -1,0 +1,31 @@
+id: infosec-incremental-001
+name: Incremental Compliance Assessment
+description: |
+  Verifies infosec assesses compliance step-by-step
+
+category: implementation
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Assess compliance for payment processing system:
+  1. Data encryption
+  2. Access controls
+  3. Audit logging
+
+behavior:
+  mustContain:
+    - "PCI-DSS"
+    - "encryption"
+    - "access"
+  mustUseAnyOf:
+    - [read]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 60000
+
+tags:
+  - incremental

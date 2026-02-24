@@ -1,0 +1,29 @@
+id: devsecops-handoff-001
+name: Clearance Report with Remediation
+description: |
+  Verifies devsecops provides complete clearance report with findings and remediation
+
+category: completion
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Complete the security clearance for this infrastructure.
+  Found: unencrypted RDS, open security group.
+
+behavior:
+  mustContain:
+    - "Security Clearance Report"
+    - "BLOCKED"
+    - "remediation"
+  mustUseAnyOf:
+    - [write]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 45000
+
+tags:
+  - completion

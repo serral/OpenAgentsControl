@@ -1,0 +1,28 @@
+id: devsecops-planning-001
+name: Scan Before Issuing Clearance
+description: |
+  Verifies devsecops scans infrastructure before providing clearance
+
+category: critical-rules
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Provide security clearance for this Terraform S3 bucket config.
+
+behavior:
+  mustContain:
+    - "scan"
+    - "checkov"
+  mustUseAnyOf:
+    - [bash, read]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 45000
+
+tags:
+  - planning
+  - scanning

@@ -1,0 +1,35 @@
+id: security-context-001
+name: Load Security Context Before Clearance Review
+description: |
+  Ensures security orchestrator loads security-orchestrator-context.md
+  when detailed workflow guidance is needed
+
+category: critical-rules
+agent: security
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  I need to understand the exact dual-clearance workflow process.
+  What are the steps for obtaining clearance from both subagents?
+
+behavior:
+  mustContain:
+    - "security-orchestrator-context"
+    - "decision matrix"
+  mustUseAnyOf:
+    - [read]
+  minToolCalls: 1
+
+expectedViolations:
+  - rule: context-loaded-before-execution
+    shouldViolate: false
+    severity: error
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - context-loading
+  - just-in-time

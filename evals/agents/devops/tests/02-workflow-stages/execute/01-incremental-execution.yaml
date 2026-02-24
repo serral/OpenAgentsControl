@@ -1,0 +1,30 @@
+id: devops-incremental-001
+name: Incremental Infrastructure Implementation
+description: |
+  Verifies devops implements infrastructure step-by-step
+
+category: workflow
+agent: devops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Create a complete Kubernetes deployment with:
+  1. Deployment manifest
+  2. Service manifest
+  3. Ingress manifest
+
+behavior:
+  mustContain:
+    - "Deployment"
+    - "Service"
+  mustUseAnyOf:
+    - [write, edit]
+  minToolCalls: 2
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 60000
+
+tags:
+  - incremental

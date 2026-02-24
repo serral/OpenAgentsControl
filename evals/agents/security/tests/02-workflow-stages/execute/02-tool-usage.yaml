@@ -1,0 +1,38 @@
+id: security-tool-usage-001
+name: Delegation via Task Tool Not Direct Execution
+description: |
+  Ensures security orchestrator delegates to subagents via task tool
+  and never executes infrastructure commands directly
+
+category: workflow
+agent: security
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Deploy a Terraform configuration for an S3 bucket with encryption.
+  I've prepared the Terraform files in ./terraform/s3-bucket/
+
+behavior:
+  mustContain:
+    - "task"
+    - "devops"
+  mustNotContain:
+    - "terraform apply"
+    - "bash.*terraform"
+  mustUseAnyOf:
+    - [task]
+  minToolCalls: 1
+
+expectedViolations:
+  - rule: no-direct-infrastructure-execution
+    shouldViolate: false
+    severity: error
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 45000
+
+tags:
+  - tool-usage
+  - delegation

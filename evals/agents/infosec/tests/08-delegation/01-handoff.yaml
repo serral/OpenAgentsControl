@@ -1,0 +1,30 @@
+id: infosec-handoff-001
+name: Compliance Clearance Report with Gaps
+description: |
+  Verifies infosec provides complete compliance report with gaps and recommendations
+
+category: delegation
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Complete compliance clearance for GDPR system.
+  Found: Missing consent management, no data retention policy.
+
+behavior:
+  mustContain:
+    - "Compliance"
+    - "Clearance Report"
+    - "BLOCKED"
+    - "consent"
+  mustUseAnyOf:
+    - [write]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 45000
+
+tags:
+  - completion

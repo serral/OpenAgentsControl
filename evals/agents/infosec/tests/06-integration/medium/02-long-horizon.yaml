@@ -1,0 +1,31 @@
+id: infosec-compaction-001
+name: Multiple Regulation Assessment
+description: |
+  Tests infosec assessing multiple regulations across different systems
+
+category: integration
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Assess compliance for:
+  1. EU customer database (GDPR)
+  2. US healthcare portal (HIPAA)
+  3. Payment gateway (PCI-DSS)
+
+behavior:
+  mustContain:
+    - "GDPR"
+    - "HIPAA"
+    - "PCI-DSS"
+  mustUseAnyOf:
+    - [read]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 90000
+
+tags:
+  - long-horizon

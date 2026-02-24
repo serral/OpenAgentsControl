@@ -1,0 +1,26 @@
+id: infosec-tool-usage-001
+name: Read Policy Docs and Load Context
+description: |
+  Ensures infosec reads policy docs and loads compliance context
+
+category: workflow
+agent: infosec
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Review the data processing policy and assess GDPR compliance.
+
+behavior:
+  mustUseAnyOf:
+    - [read]
+  mustContain:
+    - "GDPR"
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - tool-usage

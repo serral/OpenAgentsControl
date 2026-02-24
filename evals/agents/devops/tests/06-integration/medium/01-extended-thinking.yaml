@@ -1,0 +1,25 @@
+id: devops-extended-thinking-001
+name: Infrastructure Design Decomposition
+description: |
+  Verifies devops decomposes infrastructure requirements before implementation
+
+category: integration
+agent: devops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Design a highly available web application infrastructure on AWS.
+
+behavior:
+  mustContain:
+    - "load balancer"
+    - "auto scaling"
+  minToolCalls: 0
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - extended-thinking

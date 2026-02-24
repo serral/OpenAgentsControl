@@ -1,0 +1,30 @@
+id: devsecops-error-001
+name: Block on Critical/High CVEs
+description: |
+  Verifies devsecops issues BLOCKED clearance for critical/high findings
+
+category: edge-cases
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Trivy scan found:
+  - CRITICAL: CVE-2023-12345 in base image
+  
+  Provide clearance status.
+
+behavior:
+  mustContain:
+    - "BLOCKED"
+    - "CRITICAL"
+  mustNotContain:
+    - "CLEAR"
+  minToolCalls: 0
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - error-handling

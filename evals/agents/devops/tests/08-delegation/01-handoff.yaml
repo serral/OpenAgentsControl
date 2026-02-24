@@ -1,0 +1,29 @@
+id: devops-handoff-001
+name: Clear Provisioning Plan Handoff
+description: |
+  Verifies devops provides clear provisioning plan for security review
+
+category: delegation
+agent: devops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Create Terraform plan for RDS PostgreSQL with encryption.
+  What's the summary for security review?
+
+behavior:
+  mustContain:
+    - "RDS"
+    - "encryption"
+    - "plan"
+  mustUseAnyOf:
+    - [write, bash]
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 45000
+
+tags:
+  - completion

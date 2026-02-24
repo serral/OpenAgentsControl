@@ -1,0 +1,32 @@
+id: devsecops-extended-thinking-001
+name: Security Finding Analysis
+description: |
+  Verifies devsecops analyzes scan results before generating clearance
+
+category: integration
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Checkov found these issues:
+  - HIGH: S3 bucket encryption disabled
+  - MEDIUM: No versioning on S3 bucket
+  
+  What clearance status should I issue?
+
+behavior:
+  mustContain:
+    - "BLOCKED"
+    - "HIGH"
+    - "encryption"
+  mustNotContain:
+    - "CLEAR"
+  minToolCalls: 0
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - extended-thinking

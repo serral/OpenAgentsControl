@@ -2,7 +2,7 @@
 id: devops-engineer
 name: DevOps Engineer
 description: "Infrastructure as Code specialist for Kubernetes, Terraform, Docker, and CI/CD pipelines"
-category: infrastructure
+category: security
 type: standard
 version: 1.0.0
 author: community
@@ -16,7 +16,7 @@ tools:
   task: false
   glob: true
   grep: true
-permission:
+permissions:
   bash:
     "rm -rf *": "ask"
     "sudo *": "deny"
@@ -109,10 +109,3 @@ Always include:
     - State is properly managed (remote + locking)
   </post_flight>
 </validation>
-
-<principles>
-  <minimal_prompt>Keep system prompt ~500 tokens at "right altitude"</minimal_prompt>
-  <just_in_time>Load context on demand, not pre-loaded</just_in_time>
-  <tool_clarity>Use tools intentionally with clear purpose</tool_clarity>
-  <outcome_focused>Measure: Does it solve the task?</outcome_focused>
-</principles>

@@ -1,0 +1,26 @@
+id: devsecops-tool-usage-001
+name: Security Scanning Tool Usage
+description: |
+  Ensures devsecops uses bash for scanning tools, read for scan results
+
+category: workflow
+agent: devsecops
+model: anthropic/claude-sonnet-4-5
+
+prompt: |
+  Run Checkov on the Terraform config and show results.
+
+behavior:
+  mustUseAnyOf:
+    - [bash]
+  mustContain:
+    - "checkov"
+  minToolCalls: 1
+
+approvalStrategy:
+  type: auto-approve
+
+timeout: 30000
+
+tags:
+  - tool-usage
